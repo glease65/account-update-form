@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agency Update Form</title>
+    <style>
+        body {
+            background-color: #fbdf1b;
+            color: #000;
+            font-family: Arial, sans-serif;
+           /* font-weight: bold; */ 
+      /*  body {
+            background-color: #1c2731;
+            color: #ECF0F1;
+            font-family: Arial, sans-serif;
+            text-align: left; 
+            display: flex;
+            flex-direction: row; 
+            justify-content: normal; 
+            align-items: normal; 
+            min-height: fit-content; 
+            margin: 0; /* Removes default margin */
+        }
+        /* You might need to adjust the width of certain elements like form, inputs, and textareas to ensure they look good when centered */
+        form, .form-field {
+            margin: -.09rem 0;
+        }    
+         /* Adjust inputs and textareas specifically if needed */
+      /*  input, textarea, select {
+            display: block; 
+            margin: 5px auto; 
+            width: 20%; 
+        }   */
+
+        input, select, textarea{
+            margin-top: 0.25rem;
+            margin-bottom: 0.25rem;
+            background-color: #266afd; /* Default background color for inputs and textarea */
+            border-radius: 2px; /* Adjusts the radius of the element's corners */
+            border: 2px solid #000; /* Black border */
+            padding: 5px; /* Inner padding */
+            box-shadow: 4px 4px 0px #000; /* Black shadow */
+            margin: 4px; /* Right Outer margin */
+        }
+        #agency-update-form {
+            font-size: 0.9rem;
+        }
+
+        h2 {
+            color: #29972d;
+            text-shadow: #ffffff 1px 1px 2px;
+        }
+        h3 {
+            color: #a052f2;
+        }
+      /*  h2 {
+            color: #8ae678;
+        }
+        h3 {
+            color: #3d9bff;
+        }
+     */
+
+        .form-field {
+            margin: -.09rem 0;
+
+        }
+        input[type="text"], textarea { 
+            background-color : #266afd; 
+            field-sizing: content; /* Allows the input to resize based on content */
+            min-width: 100px;     /* Minimum width */
+            max-width: 97%;      /* Maximum width to fit the container */
+            padding: 8px;         /* Inner padding */
+        }
+        input[type="text"]:valid,
+        textarea:valid,
+        select:valid {
+          /*  background-color: #656565; */
+            background-color: grey;
+            color: #ffffff;
+        }
+
+        input[type=text]:focus, textarea:focus{
+            background-color: #E74C3C;
+
+        }    
+        #submit {
+            background-color: rgb(60, 129, 203);
+            color: #ffffff;
+            border-radius: 8px;
+        }
+        .form-field input[type="text"] {
+            width: 9%;
+        }
+        #preview {
+           /*  height: 200px; */
+            overflow-y: scroll;
+            text-align: left; /* Aligns text to the left */
+            padding: 10px; /* Adds padding */
+        }
+        /*.button-expanded {
+            background-color: #69b6ee;
+        }
+
+        .button-collapsed {
+            background-color: darkorange;
+        }*/ 
+    
+        /*
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+        }
+        */
+
+
+        /*.filled {
+            background-color: lightblue; /* Color when filled 
+        }*/
+
+
+    </style>
+</head>
+<body>
+        <!-- Form title -->
+    <h2 style="font-size: 0.5rem"></h2>
+    <form id="agency-update-form">
+<br
+        <p class="form-field"> Package: <span id="marketing_package_budget"> 
+            <select id="mrkt_package" required>
+                <option value="">--- 📦 ---</option> 
+                <option value="Basic">Basic - $300</option>
+                <option value="Starter">Starter - $600</option>
+                <option value="Advanced">Advanced - $1000</option>
+            </select>
+        </span></p>
+            <p class="form-field">Budget: $ <input type="text" id="budget" required></p>
+
+
+        <hr>
+        
+
+        <div class="form-field" style="text-align: center;"><h2>-Ads + Dashboard-</h2></div>
+               
+        <p><span id="date", style="font-weight: bolder; font-size: 1.30rem;"></span>  > ROAS <input type="text" id="roas" required> x</p>    
+            <!-- Metrics for the last 30 days -->
+        <p class="form-field">(Last 30 days)</p>
+        <p class="form-field">Orders: <input type="text" id="orders" required></p>
+        <p class="form-field">Sales: $ <input type="text" id="sales" required></p>
+        <p class="form-field">Avg order value: $ <input type="text" id="ave_order_value" required></p>
+        <p class="form-field">Cancellation rate is <input type="text" id="cancellation_rate" required>%. 
+        <span id="cancel_reason_text" style="display: none;">
+            This is mainly due to 
+            <select id="cancel_reason" required>
+                <option value="">--------  ❓  --------</option> 
+                <option value="cannot ship parts">Cannot ship parts</option>
+                <option value="cost of shipping higher than collected">Cost of shipping higher than collected</option>
+                <option value="discontinued parts">Discontinued parts</option>
+                <option value="hazmat or controlled items">Hazmat or controlled items</option>
+                <option value="incorrect image or description">Incorrect image or description</option>
+                <option value="incorrect part fitment">Incorrect part fitment</option>
+                <option value="known fraud">Known fraud</option>
+                <option value="needing parts sooner">Needing parts sooner</option>
+                <option value="no sub reason given">No sub reason given</option>
+                <option value="out of dealer stock">Out of dealer stock</option>
+                <option value="parts not needed">Parts not needed</option>
+                <option value="parts on backorder">Parts on backorder</option>
+                <option value="proper packaging unavailable">Proper packaging unavailable</option>
+                <option value="superseded parts">Superseded parts</option>
+                <option value="suspected fraud">Suspected fraud</option>
+                <option value="various reasons">Various reasons</option>
+                <option value="wrong parts ordered">Wrong parts ordered</option>
+            </select>
+            <input type="text" id="num_cancellations" required> out of 
+            <input type="text" id="total_cancellations" required>
+        </span>
+        </p>
+        <script>
+            var cancellationRateInput = document.getElementById("cancellation_rate");
+            var cancelReasonText = document.getElementById("cancel_reason_text");
+
+            cancellationRateInput.addEventListener("input", function() {
+                if (parseFloat(cancellationRateInput.value) >= 21) {
+                    cancelReasonText.style.display = "inline";
+                } else {
+                    cancelReasonText.style.display = "none";
+                }
+            });
+        </script>
+        
+        <br>
+        <hr>
+
+      
+
+        <!--ACCOUNT SETTINGS-->
+
+        <!--  <p class="form-field">
+            <h2>--  Account Settings  --</h2>  -->
+            
+        <div class="form-field" style="text-align: center;"><h2>-Account Settings-</h2></div>    
+            
+        <button id="toggleButton" onclick="toggleAccountSettings()" style="background-color: lightred;" >
+                <span id="toggleIcon">▼</span> Sections 1-5
+            </button>
+        </p>
+        <div id="accountSettings" style="display: none;"> 
+            <!-- Initially hidden -->
+
+
+                    <!-- Section 1: DMS Integration -->
+            <p class="form-field"><h3><strong>1. DMS Integration?</strong></h3>
+                <!-- Yes/No <br>> if no; recommend<br>> if yes; verify settings are turned on, stock level showing - best practice OOS messaging & create an instock feed<br>  -->
+                    Stock message on | Stock level on | OOS message good
+                    <br><textarea id="dmsint" rows="1" cols="61"  required></textarea></p>
+        
+
+
+                <!-- Section 1.1: Payment Gateways - Shipping Creds - Featured Products -->
+            
+           <!-- <p class="form-field">Payment Gatesways: <input type="text" id="pay_Gateways" required></p> -->
+          <!--  <p class="form-field">Shipping Creds?: <input type="text" id="ship_Creds" required></p> 
+            <p class="form-field">Updating Featured Products: <input type="text" id="feat_Products" required></p> 
+            <p class="form-field">Payment Gatesways: 
+                <input type="checkbox" id="onepg" name="onepg" /><label for="onepg">1</label>
+                <input type="checkbox" id="multipg" name="multipg" /><label for="multipg">2+</label></p>
+            <p class="form-field">Shipping Creds?:  
+                <input type="checkbox" id="yes" name="Y" /><label for="yes">Yes</label>
+            <p class="form-field">Updating Featured Products: 
+                <input type="checkbox" id="yes" name="Y" /><label for="yes">Yes</label>  
+                
+            <br>
+
+
+                <!-- Section 2: Custom Image Update -->
+            
+            <p class="form-field"><h3><strong>2. Custom Image Update:</strong></h3>(highlight if an increase since last update)<br>
+                <textarea id="cimage" rows="1" cols="61" required></textarea></p>
+        
+
+
+                <!-- Section 3: Promotions Update -->
+            
+            <p class="form-field"><h3><strong>3. Promotions Update</strong></h3>> 
+                <!-- If not running promotions, highly recommend <br>> List out promotions running and how they are performing  - Usage / Sales<br>>  active promo(s) <br> -->
+                Promo - Usage/Sales<br>
+                <textarea id="promo" rows="1" cols="61" required></textarea></p>
+
+                Google Seller Rating <br>
+                <textarea id="sellerrate" rows="1" cols="61" required></textarea></p>                
+
+                <!-- Section 3.1: Review Badge - Pricing - Fee & Shipping -->
+            
+                <!--     <p class="form-field">Review Badge?: 
+                <input type="radio" id="rbadge">Yes</input>   
+              
+                
+            </p>
+            <p class="form-field">Pricing good?: 
+                <input type="radio" name="pricing">High ⚠️</input> 
+            </p>
+            <p class="form-field">Shipping Fee?: <input type="radio" name="shipping">No</input> <input type="radio" name="shipping">Yes</input> How much? <input type="text" id="shipfee" required> </p>
+                        
+            <p class="form-field">Ground Shipping 20% or less?: <input type="radio" name="shipping">Yes</input>   <input type="radio" name="shipping">No</input> </p>
+                 -->
+                
+                <!-- Section 4: Plan/Budget Upgrade Opportunities -->
+            
+            <p class="form-field"><h3><strong>4. Plan/Budget Upgrade Opportunities</strong></h3>> 
+                 All Dealers aim = Starter plan | goal= $60k/month+ need ADVANCED plan
+                 <br>> ROAS = 8x+ rec. budget increase
+                 <!-- <br>EX)They should be on starter plan, Organic traffic only accounts for 5% of total sales. - Ad Spend Increase requested: Current Ad Spend $1500/month; Recommend $2500 - lost of impression share due to budget is over 90%; with their 10.2x ROAS that is an additional $10k in revenue! -->
+                     <br><textarea id="planbudget" rows="1" cols="61" required></textarea></p>
+        
+
+
+                    <!-- Section 5: Email Marketing Update -->
+            
+            <p class="form-field"><h3><strong>5. Email Marketing Update</strong></h3>> Outreach attempts<br>> What did they agree to & what promos<br>EX) Sent initial email out for yearly plan, will follow up in few weeks<br><textarea id="emailmark" rows="1" cols="61" required></textarea></p>
+
+                              
+            <!-- End of Area that collapses with toggle button -->
+
+            <button id="toggleButton" onclick="toggleAccountSettings()" style="background-color: lightred;" >
+                <span id="toggleIcon">▼</span> Sections 1-5
+            </button>
+
+        </div>
+
+            <hr>
+            
+            <!-- <p class="form-field"> <h2>--  Google Ads  --</h2> -->
+                <div class="form-field" style="text-align: center;"><h2>-Google Ads-</h2></div>
+                    <!-- Section 6: ROAS Trending -->
+                    <p class="form-field"><h3><strong>6. ROAS Trend</strong></h3>
+                        <p class="form-field"><strong>ROAS has been trending</strong> <select id="trending" required>
+                        <option value="">-----     ▲    ▼     -----</option>
+                        <option value="positively.">positively</option>
+                        <option value="steadily.">steady</option>
+                        <option value="negatively.">negatively</option>
+                    </select> <br>Why? <textarea id="trendReason" rows="1" cols="61" required></textarea></p>   
+                    <!--Make trendReason textarea hidden when trending is steady--> 
+                    <script>
+                        var trendingSelect = document.getElementById("trending");
+                        var trendReason = document.getElementById("trendReason");
+
+                        trendingSelect.addEventListener("change", function() {
+                            if (trendingSelect.value === "steady") {
+                                trendReason.style.display = "none";
+                            } else {
+                                trendReason.style.display = "inline";
+                            }
+                        });
+                        </script>
+                    <!-- Section 6: Strategy Details -->
+           
+            <p class="form-field"><br><h3><strong>7. Strategy Details</strong></h3><!--<textarea id="stratd" rows="8" cols="75"  placeholder="➤ What's Working:  ➤ What's Not: ➤ Game Plan Moving Forward: "></textarea></p> -->
+            <p class="form-field"><br><strong>❌  What's Not Working:</strong><br><textarea id="whats_not" rows="3" cols="61" required></textarea>
+        </p>
+                           
+            <p class="form-field"><strong>✔️  What's Working:</strong><br><textarea id="whats_working" rows="3" cols="61" required></textarea></p>
+            <p class="form-field"><br><strong>➜  Game Plan Moving Forward:  ➜</strong><br><textarea id="game_plan" rows="3" cols="61" required></textarea></p>
+            <br>
+            <hr>
+            
+            <!-- <p class="form-field"><h2 >-- Budget Pacing --</h2> --> 
+                <div class="form-field" style="text-align: center;">
+                    <h2>-Budget Pacing-</h2>
+                <!-- Make the box blink red if the user has selected 'Needs Pacing' -->
+                     <select id="pacing" style= "font-size: large; text-align: center; align-items: center;" required>
+                        <option value="">  -----   ❓   -----  </option> 
+                        <option value="✅"> ✅ Good ✅</option>
+                        <option value="🚨"> 🚨  Needs pacing  🚨 </option>
+                     </select>
+                </div>
+            <br> 
+            <hr>
+
+        
+                <!-- Submit and clear buttons -->
+                
+                <button type="button" id="submit">Update Preview</button>
+                <button type="button" id="clear">Clear</button>
+                <br>
+                <hr>
+
+                    
+            <!-- Section 8: Ad Notes -->
+            
+            <div class="form-field" style="text-align: center;">
+                <h3> --   Ads Notes  -- </h3>
+                    30 Day ROAS: x    -    ➤➤➤➤  /  NXT OPT:
+                    <br>
+                        <textarea id="adnote" rows="20" cols="61" style="background-color: #a458f5;" required>
+                        </textarea></p>
+            </div>
+                <hr>
+
+
+
+
+        </form>
+        <h3 style="font-size: 0.5rem"></h3>
+        <pre id="preview"></pre>
+        <script>
+            const currentDate = new Date();
+            const formattedDate = `${currentDate.getMonth() + 1}/${currentDate.getDate()}`;
+            document.getElementById("date").innerText = formattedDate;
+            document.getElementById("submit").addEventListener("click", updatePreview);
+            document.getElementById("clear").addEventListener("click", clearForm);
+        
+    function toggleAccountSettings() {
+        var x = document.getElementById("accountSettings");
+        var button = document.getElementById("toggleButton");
+        var icon = document.getElementById("toggleIcon");
+
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            button.style.backgroundColor = "lightblue";
+            icon.textContent = "▲"; // Change to up arrow when expanded
+        } else {
+            x.style.display = "none";
+            button.style.backgroundColor = "darkorange";
+            icon.textContent = "▼"; // Change to down arrow when collapsed
+        }
+    }      
+
+    // Call the function on page load to set the initial state
+    window.onload = function() {
+        toggleAccountSettings(); // This will set the initial visibility and button color
+    }
+
+
+    function updatePreview() {
+    const roas = document.getElementById("roas").value;
+    const orders = document.getElementById("orders").value;
+    const sales = parseFloat(removeCommas(document.getElementById("sales").value));
+    const ave_order_value = document.getElementById("ave_order_value").value;
+    const trending = document.getElementById("trending").value;
+    const trendReason = document.getElementById("trendReason").value;
+    const cancellation_rate = document.getElementById("cancellation_rate").value;
+    const cancel_reason = document.getElementById("cancel_reason").value;
+    const num_cancellations = document.getElementById("num_cancellations").value;
+    const total_cancellations = document.getElementById("total_cancellations").value;
+    // new sections added
+    const dmsint = document.getElementById("dmsint").value;
+    const cimage = document.getElementById("cimage").value;
+    const promo = document.getElementById("promo").value;
+    const sellerrate = document.getElementById("sellerrate").value;    
+    const planbudget = document.getElementById("planbudget").value;
+    const emailmark = document.getElementById("emailmark").value;
+    // const stratd = document.getElementById("stratd").value;
+    const whats_working = document.getElementById("whats_working").value;
+    const whats_not = document.getElementById("whats_not").value;
+    const game_plan = document.getElementById("game_plan").value;
+    //const stratd = document.getElementById("stratd").value;
+    //const stratd = document.getElementById("stratd").value;
+    const adnote = document.getElementById("adnote").value;
+
+    
+
+    
+    let cancel_reason_text = "";
+    if (parseFloat(cancellation_rate) > 20) {
+        const cancellation_percentage = Math.round((num_cancellations / total_cancellations) * 100);
+        cancel_reason_text = `This is due to ${cancel_reason} (${num_cancellations} - ${cancellation_percentage}% of all cancellations).`;
+    }
+    
+   // const rounded_net_profit = Math.round(net_profit);
+   // const net_profit_formatted = rounded_net_profit.toLocaleString();
+
+       const rounded_sales = Math.round(sales);
+       const sales_formatted = rounded_sales.toLocaleString();
+
+//bold text for what's working and what's not and game plan sections 
+const preview = `30 Day ROAS: ${roas}x\n➤ \n\n➤ \n➤ \n\nAgency Update ${formattedDate}/25: OPT - ROAS ${roas}x\n\nROAS: ${roas}x\nOrders: ${orders}\nSales: $${sales_formatted}\nAvg order value: $${ave_order_value}\nCancellation rate: ${cancellation_rate}%. ${cancel_reason_text}\nROAS is trending ${trending} ${trendReason}\n\n✔️ What's Working\n${whats_working}\n❌ What's Not\n${whats_not}\n➜ Game Plan Moving Forward\n${game_plan}`;
+
+    // Backup last sections for preview 
+    // After {game_plan} -\n${cimage}\n${dmsint}\n${planbudget}\n${promo}\n${emailmark}
+    //add new sections into the preview after adding to Function! 
+    
+    
+    
+    // TEST breaking up preview into sections - GET ALL PREVIEW TO SHOW WITH BUTTONS TO COPY TO CLIPBOARD FOR EACH SECTION
+
+
+    // 1st - 30 Day ROAS section - Auto pasted into textarea id="adnote" 
+//const preview1 = `\n30 Day ROAS: ${roas}x\n➤ \n\n➤ \n\n➤ \n`;
+
+    // 2nd - Agency Update Title with a button to copy it to clipboard
+//const preview2 = `\nAgency Update ${formattedDate}: OPT - ROAS ${roas}x\n`;
+
+    // 3rd - Metrics and Strategy with a button to copy it to clipboard
+//const preview3 = `\nROAS: ${roas}x\nOrders: ${orders}\nSales: $${sales_formatted}\nAve order value: $${ave_order_value}\nCancellation rate: ${cancellation_rate}%. ${cancel_reason_text}\nROAS is trending ${trending} ${trendReason}\n\n➤ What's Working\n${whats_working}\n➤ What's Not\n${whats_not}\n➤ Game Plan Moving Forward\n${game_plan}\n\n${cimage}\n\n${dmsint}\n\n${planbudget}\n\n${promo}\n\n${emailmark}\n`;
+
+
+
+document.getElementById("preview").innerText = preview;
+document.getElementById("preview").style.whiteSpace = "pre-wrap";
+
+// Scroll to the bottom of the page
+window.scrollTo(0, document.body.scrollHeight);
+}
+// Removes commas from net profit
+function removeCommas(value) {
+    return value.replace(/,/g, '');
+}
+function clearForm() {
+    document.getElementById("agency-update-form").reset();
+    document.getElementById("preview").innerText = '';
+
+    // Scroll back to the top of the page
+    window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
