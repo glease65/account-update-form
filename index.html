@@ -266,7 +266,7 @@
             <p class="form-field"><h3><strong>5. Email Marketing Update</strong></h3>> Outreach attempts<br>> What did they agree to & what promos<br>EX) Sent initial email out for yearly plan, will follow up in few weeks<br><textarea id="emailmark" rows="1" cols="61" required></textarea></p>
 
                               
-            <!-- End of Area that collapses with toggle button -->
+            <!-- End of Area that collapses with toggle button --
 
             <button id="toggleButton" onclick="toggleAccountSettings()" style="background-color: lightred;" >
                 <span id="toggleIcon">▼</span> Sections 1-5
@@ -280,11 +280,15 @@
                 <div class="form-field" style="text-align: center;"><h2>-Google Ads-</h2></div>
                     <!-- Section 6: ROAS Trending -->
                     <p class="form-field"><h3><strong>6. ROAS Trend</strong></h3>
-                        <p class="form-field"><strong>ROAS has been trending</strong> <select id="trending" required>
+                        <p class="form-field"><strong>ROAS is trending</strong> <select id="trending" required>
                         <option value="">-----     ▲    ▼     -----</option>
-                        <option value="positively.">positively</option>
+                        <option value="positive.">positive</option>
+                        <option value="slightly positive.">slightly positive</option>
                         <option value="steadily.">steady</option>
-                        <option value="negatively.">negatively</option>
+                        <option value="slightly negative.">slightly negative</option>
+                        <option value="negative.">negative</option>
+
+
                     </select> <br>Why? <textarea id="trendReason" rows="1" cols="61" required></textarea></p>   
                     <!--Make trendReason textarea hidden when trending is steady--> 
                     <script>
