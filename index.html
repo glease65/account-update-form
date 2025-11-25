@@ -221,7 +221,7 @@
 
                 <!-- Section 2: Custom Image Update -->
             
-            <p class="form-field"><h3><strong>2. Custom Image Update:</strong></h3>(highlight if an increase since last update)<br>
+            <p class="form-field"><h3><strong>2. Custom Image Update:</strong></h3>
                 <textarea id="cimage" rows="1" cols="61" required></textarea></p>
         
 
@@ -230,7 +230,7 @@
             
             <p class="form-field"><h3><strong>3. Promotions Update</strong></h3>> 
                 <!-- If not running promotions, highly recommend <br>> List out promotions running and how they are performing  - Usage / Sales<br>>  active promo(s) <br> -->
-                Promo - Usage/Sales<br>
+                
                 <textarea id="promo" rows="1" cols="61" required></textarea></p>
 
                 Google Seller Rating <br>
@@ -254,8 +254,7 @@
                 <!-- Section 4: Plan/Budget Upgrade Opportunities -->
             
             <p class="form-field"><h3><strong>4. Plan/Budget Upgrade Opportunities</strong></h3>> 
-                 All Dealers aim = Starter plan | goal= $60k/month+ need ADVANCED plan
-                 <br>> ROAS = 8x+ rec. budget increase
+                  goal= $60k/mnth+ need ADVANCED 
                  <!-- <br>EX)They should be on starter plan, Organic traffic only accounts for 5% of total sales. - Ad Spend Increase requested: Current Ad Spend $1500/month; Recommend $2500 - lost of impression share due to budget is over 90%; with their 10.2x ROAS that is an additional $10k in revenue! -->
                      <br><textarea id="planbudget" rows="1" cols="61" required></textarea></p>
         
@@ -264,7 +263,7 @@
                     <!-- Section 5: Email Marketing Update -->
             
             <p class="form-field"><h3><strong>5. Email Marketing Update</strong></h3>
-            > Outreach attempts<br>> What did they agree to & what promos<br>EX) Sent initial email out for yearly plan, will follow up in few weeks
+            What did they agree to & what promos<br>
             <br><textarea id="emailmark" rows="1" cols="61" required></textarea></p>
         </div>
 
@@ -309,8 +308,8 @@
                     <!-- Section 6: Strategy Details -->
            
             <p class="form-field"><br><h3><strong>7. Strategy Details</strong></h3><!--<textarea id="stratd" rows="8" cols="75"  placeholder="➤ What's Working:  ➤ What's Not: ➤ Game Plan Moving Forward: "></textarea></p> -->
-            <p class="form-field"><br><strong>❌  What's Not Working:</strong><br><textarea id="whats_not" rows="3" cols="61" required></textarea>
-        </p>
+            <!--p <class="form-field"><br><strong>❌  What's Not Working:</strong><br><textarea id="whats_not" rows="3" cols="61" required></textarea>
+        </p> -->
                            
             <p class="form-field"><strong>✔️  What's Working:</strong><br><textarea id="whats_working" rows="3" cols="61" required></textarea></p>
             <p class="form-field"><br><strong>➜  Game Plan Moving Forward:  ➜</strong><br><textarea id="game_plan" rows="3" cols="61" required></textarea></p>
@@ -427,7 +426,7 @@
        const sales_formatted = rounded_sales.toLocaleString();
 
 //bold text for what's working and what's not and game plan sections 
-const preview = `30 Day ROAS: ${roas}x\n➤ \n➤ \n➤ \n\nAgency Update ${formattedDate}/25: OPT - ROAS ${roas}x\n\nROAS: ${roas}x\nOrders: ${orders}\nSales: $${sales_formatted}\nAvg order value: $${ave_order_value}\nCancellation rate: ${cancellation_rate}%. ${cancel_reason_text}\nROAS is trending ${trending} ${trendReason}\n\n✔️ What's Working\n${whats_working}\n❌ What's Not\n${whats_not}\n➜ Game Plan Moving Forward\n${game_plan}`;
+const preview = `30 Day ROAS: ${roas}x\n➤ \n➤ \n➤ \n\nAgency Update ${formattedDate}/25: OPT - ROAS ${roas}x\n\nROAS: ${roas}x\nOrders: ${orders}\nSales: $${sales_formatted}\nAvg order value: $${ave_order_value}\nCancellation rate: ${cancellation_rate}%. ${cancel_reason_text}\nROAS is trending ${trending} ${trendReason}\n\n✔️ What's Working\n${whats_working}\n${whats_not}\n➜ Game Plan Moving Forward\n${game_plan}`;
 
     // Backup last sections for preview 
     // After {game_plan} -\n${cimage}\n${dmsint}\n${planbudget}\n${promo}\n${emailmark}
